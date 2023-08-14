@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: deploytoaks
+  labels:
+    app: deploytoaks
+  namespace: namespace-workflow-1692030709421
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: deploytoaks
+  template:
+    metadata:
+      labels:
+        app: deploytoaks
+    spec:
+      containers:
+        - name: deploytoaks
+          image: todotfacr.azurecr.io/image-workflow-1692030709421:latest
+          ports:
+            - containerPort: 5000
